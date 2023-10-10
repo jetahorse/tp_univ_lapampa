@@ -25,7 +25,7 @@
             $consulta_usuarios="select * from usuarios";
             $resultado_consulta=mysqli_query($conexion_actual,$consulta_usuarios);
             $nro_filas=mysqli_num_rows($resultado_consulta);
-            print('<a class="btn btn-success" href="nuevo_usuario.php">Nuevo Usuario</a>');
+            print('<a class="btn btn-success" href="usuarios_nueva.php">Nuevo Usuario</a>');
     
             $texto_mostrar='
                 <table class="table">
