@@ -22,17 +22,17 @@ if(isset($_SESSION['usuario_logueado']))
         <div class="row">
             <div>
             <?php
-              /*  if(isset($_SESSION['mensaje']))
+                if(isset($_SESSION['mensaje']))
                 {
                     print("<p>".$_SESSION['mensaje']."</p>");
                     unset($_SESSION['mensaje']);
                 }
-*/
-                if(isset($mensaje))
+
+                /*if(isset($mensaje))
                 {
                     print("<p>".$mensaje."</p>");
                    
-                }
+                }*/
             ?>
             <form action="login.php" method="post">
                 <div class="mb-3">
