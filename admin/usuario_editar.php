@@ -10,8 +10,6 @@
     require("conexion.php");
     $conexion = mysqli_connect($server_db, $usuario_db, $password_db)
             or die("No se puede conectar con el servidor");
-    if (isset($conexion)){ echo "conexión exitosa";}
-    if (isset($id_usuario)) {echo "id_usuario".$id_usuario;}
     mysqli_select_db($conexion, $base_db)
             or die("No se puede seleccionar la base de datos");
     
@@ -89,7 +87,20 @@ print('
                         <label for="usuario" class="form-label">Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="usuario" value="'.$usuario.'" placeholder="Usuario" required>
                         <label for="usuario" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" value="'.$password.'" required>
+                        <input type="password" class="form-control" id="password" name="password" value="'.$password.'" required disabled>
+                        <input type="checkbox" id="password_modificar" name="password_modificar" value="1"">
+                        <label for="password_modificar">Modificar Password</label>
+                        <script>
+                            // Obtén el checkbox y el campo de contraseña por su ID
+                            var checkbox = document.getElementById("password_modificar"); // Debes usar comillas
+                            var contrasena = document.getElementById("password"); // Debes usar comillas
+                        
+                            // Agrega un event listener al checkbox para habilitar/deshabilitar el campo de contraseña
+                            checkbox.addEventListener("click", function() {
+                                contrasena.disabled = checkbox.checked;
+                            });
+                        </script>
+                        <br>
                         <label for="usuario" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" value="'.$nombre.'" placeholder="Nombre" required>
                         <label for="usuario" class="form-label">Apellido</label>
