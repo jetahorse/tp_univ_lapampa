@@ -98,6 +98,7 @@ print('
                             // Agrega un event listener al checkbox para habilitar/deshabilitar el campo de contraseña
                             checkbox.addEventListener("click", function() {
                                 contrasena.disabled = checkbox.checked;
+                                
                             });
                         </script>
                         <br>
