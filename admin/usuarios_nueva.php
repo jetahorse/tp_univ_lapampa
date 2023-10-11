@@ -24,7 +24,7 @@ if (!isset($_SESSION['usuario_logueado']))
 <body>
     <div class="container">
         <?php require("menu.php"); ?>
-        <h1>Noticias Nueva</h1>
+        <h1>Usuario Nuevo</h1>
 
         <form action="usuarios_nueva_guardar.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">

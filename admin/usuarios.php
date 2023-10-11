@@ -26,7 +26,8 @@
             $resultado_consulta=mysqli_query($conexion_actual,$consulta_usuarios);
             $nro_filas=mysqli_num_rows($resultado_consulta);
             print('<a class="btn btn-success" href="usuarios_nueva.php">Nuevo Usuario</a>');
-    
+            print("<h1> Listado de Usuarios </h1>");
+   
             $texto_mostrar='
                 <table class="table">
                 <tr>
@@ -36,10 +37,9 @@
                   <th>Acción</th>
                 </tr>';
                 
-            for ($i=0; $i<$nro_filas; $i++)
-            {
-                
-                print("<h1> Listado de Usuarios </h1>");
+            for ($i=0; $i<$nro_filas; $i++){
+
+                         
                 $arr_usuarios=mysqli_fetch_array($resultado_consulta);
             
                 $texto_mostrar.=
@@ -47,8 +47,8 @@
                   <td>'.$arr_usuarios['nombre'].'</td>
                   <td>'.$arr_usuarios['apellido'].'</td>
                   <td>'.$arr_usuarios['usuario'].'</td>
-                  <td><a class="btn btn-primary" href="editar_usuario.php?id_usuario='.
-                  $arr_usuarios['id_usuario'].'">Editar</a> <a class="btn btn-danger" href="borrar_usuario.php?id_usuario='.
+                  <td><a class="btn btn-primary" href="usuario_editar.php?id_usuario='.
+                  $arr_usuarios['id_usuario'].'">Editar</a> <a class="btn btn-danger" href="usuarios_borrar.php?id_usuario='.
                   $arr_usuarios['id_usuario'].'">Borrar</a></td>
                 </tr>';
             }

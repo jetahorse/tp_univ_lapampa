@@ -24,7 +24,7 @@
             or die("No se puede conectar con el servidor");
         mysqli_select_db($conexion, $base_db)
             or die("No se puede seleccionar la base de datos");
-        $instruccion = "select * from noticias  order by fecha desc";
+        $instruccion = "select * from noticias  order by fecha desc limit 10";
 
         $consulta = mysqli_query($conexion, $instruccion) or die("no puedo consultar");
 

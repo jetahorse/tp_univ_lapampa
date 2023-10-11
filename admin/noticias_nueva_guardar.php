@@ -1,6 +1,6 @@
 <?php
     session_start();
-        extract($_REQUEST);
+    extract($_REQUEST);
     if (!isset($_SESSION['usuario_logueado']))
         header("location:index.php");
 
@@ -39,4 +39,4 @@
    mysqli_stmt_execute($stmt);*/
     mysqli_close($conexion);
     header("location:noticias.php?mensaje=Guardo");
-?>  
+?>        

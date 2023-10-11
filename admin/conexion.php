@@ -3,4 +3,5 @@
      $usuario_db="root";
      $password_db="";
      $base_db="diariodb";
+     $port_db="2500";
 ?>

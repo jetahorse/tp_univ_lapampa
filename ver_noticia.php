@@ -30,6 +30,8 @@
         $consulta = mysqli_query($conexion, $instruccion) or die("no puedo consultar");
 
         $nfilas = mysqli_num_rows($consulta);
+        
+    
         for ($i = 0; $i < $nfilas; $i++) {
             $resultado = mysqli_fetch_array($consulta);
             print('
@@ -42,16 +44,9 @@
                         <a href="javascript:history.back()" class="btn btn-primary">Go somewhere</a>
                     </div>
                  </div>
-            </div>
-
-
-
-
-
-           
-            
-            ');
+            </div>');
         }
+      
         mysqli_close($conexion);
         ?>
         </div>
