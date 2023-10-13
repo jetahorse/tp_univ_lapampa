@@ -38,7 +38,7 @@
                     <div class="card-body">
                             <h5 class="card-title">'.$resultado['titulo'].'</h5>
                         <p class="card-text">'.substr($resultado['copete'],0,40).'</p>
-                        <a href="ver_noticia.php?id_noticia='.$resultado['id_noticia'].'" class="btn btn-primary">Go somewhere</a>
+                        <a href="ver_noticia.php?id_noticia='.$resultado['id_noticia'].'" class="btn btn-primary">Leer Artículo</a>
                     </div>
                  </div>
             </div>

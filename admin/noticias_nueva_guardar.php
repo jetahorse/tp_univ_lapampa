@@ -30,7 +30,7 @@
          if($copiarArchivo)
              move_uploaded_file($_FILES['imagen']['tmp_name'],$nombreDirectorio.$nombrefichero);
     
-    $instruccion="insert into noticias (titulo,copete,cuerpo,imagen,categoria,id_usuario,fecha) values ('$titulo','$copete','$cuerpo','$nombrefichero','$categoria','$id_usuario','$fecha')";
+    $instruccion="insert into noticias (titulo,copete,cuerpo,imagen,categoria,id_usuario,fecha,autor) values ('$titulo','$copete','$cuerpo','$nombrefichero','$categoria','$id_usuario','$fecha','". $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] ."')";
     $consulta=mysqli_query($conexion,$instruccion) 
             or die("no pudo insertar");
     //metodo 2
