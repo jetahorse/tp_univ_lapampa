@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    
     session_start();
     extract($_REQUEST);
     if (!isset($_SESSION['usuario_logueado']))
@@ -19,7 +22,8 @@
     $copiarArchivo=false;
     if(is_uploaded_file($_FILES['imagen']['tmp_name']))
     {
-        $nombreDirectorio="../imagenes_subidas/";
+        //$nombreDirectorio="/Applications/Xampp/xamppfiles/htdocs/CLASE4/imagenes_subidas/";
+        $nombreDirectorio="imagenes_subidas/";
         $idUnico=time();
         $nombrefichero=$idUnico. "-" .$_FILES['imagen']['name'];
         $copiarArchivo=true;
@@ -27,16 +31,26 @@
         else 
          $nombrefichero="";
    
-         if($copiarArchivo)
-             move_uploaded_file($_FILES['imagen']['tmp_name'],$nombreDirectorio.$nombrefichero);
-    
-    $instruccion="insert into noticias (titulo,copete,cuerpo,imagen,categoria,id_usuario,fecha,autor) values ('$titulo','$copete','$cuerpo','$nombrefichero','$categoria','$id_usuario','$fecha','". $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] ."')";
-    $consulta=mysqli_query($conexion,$instruccion) 
+    if($copiarArchivo){
+
+       if(move_uploaded_file($_FILES['imagen']['tmp_name'],$nombreDirectorio.$nombrefichero)){
+        echo "<p>Archivo guardado con éxito</p>";
+        $archivoGuardado=true;
+       }
+       else
+        {
+            echo "<p>No se pudo guardar el archivo<p>";
+            $archivoGuardado=false;
+        }
+    }
+    if ($archivoGuardado){
+        $instruccion="insert into noticias (titulo,copete,cuerpo,imagen,categoria,id_usuario,fecha,autor) values ('$titulo','$copete','$cuerpo','$nombrefichero','$categoria','$id_usuario','$fecha','". $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] ."')";
+        $consulta=mysqli_query($conexion,$instruccion) 
             or die("no pudo insertar");
-    //metodo 2
-    /*$stmt=mysqli_prepare($conexion,"insert into noticias (titulo,copete,cuerpo,imagen,categoria,id_usuario,fecha) values (?,?,?,?,?,?,?)");
-    mysqli_stmt_bind_param($stmt,'sssssds', $titulo,$copete,$cuerpo,$imagen,$categoria,$id_usuario,$fecha);
-   mysqli_stmt_execute($stmt);*/
-    mysqli_close($conexion);
-    header("location:noticias.php?mensaje=Guardo");
+        mysqli_close($conexion);
+        header("location:noticias.php?mensaje=Guardo");
+    }
+    else header("location:noticias.php?mensaje=No Guardo");
+
+
 ?>        

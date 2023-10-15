@@ -34,7 +34,7 @@
             print('
             <div class="col-4">
                 <div class="card">
-                <img src="imagenes_subidas/'.$resultado['imagen'].'" class="card-img-top" alt="'.$resultado['titulo'].'">
+                <img src="./imagenes_subidas/'.$resultado['imagen'].'" class="card-img-top" alt="'.$resultado['titulo'].'">
                     <div class="card-body">
                             <h5 class="card-title">'.$resultado['titulo'].'</h5>
                         <p class="card-text">'.substr($resultado['copete'],0,40).'</p>
